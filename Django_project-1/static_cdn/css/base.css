@@ -1,0 +1,30 @@
+h1{
+    color: #f6f6f6;
+}
+
+#show{
+    background: rgba(222,220,216,0.41);
+}
+#draft{
+    color: red;
+}
+
+html,
+body,
+.view {
+    height: 100%;
+}
+
+.view1 {
+    background: url("http://intca.org/wp-content/uploads/2016/08/IoT.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+
+.author{
+    color: #ba2121;
+}
