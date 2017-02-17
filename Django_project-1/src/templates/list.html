@@ -1,0 +1,59 @@
+{% extends "base.html"%}
+{%block content%}
+<html id="show1">
+<div class="col-sm-6 sol-sm-offset-3" >
+<h1> Internet of Things</h1>
+    <form method ="GET" action="">
+        <input type="text" name="q" placeholder="Search" value="{{request.GET.q}}"/>
+        <input type="submit" value="Submit"/>
+    </form>
+    <div class="row">
+    {%for value in object_list%}
+      <div class="col-sm-14">
+        <div class="thumbnail" id="show">
+            {%if value.image%}
+            <img src="{{value.image.url}}" class= "img-responsive"/>
+            {%endif%}
+          <div class="caption">
+            <h3><a href="{{value.get_absolute_url}}">{{value.Title}}</a><small>{{value.Updated|timesince}}
+             ago </small></h3>
+              {%if user.get_full_name%}<p>
+                  {{value.user.get_full_name}}
+              </p>
+              {%endif%}
+
+              {%if value.draft%}
+                <h3 id="draft">Draft
+                </h3>
+              {%endif%}
+              {%if value.publish > today%}<h3>Future Post </h3> {%endif%}
+
+
+            <p>{{value.Content|linebreaks|truncatechars:120}}</p>
+            <p><a href="{{value.get_absolute_url}}" class="btn btn-primary" role="button">View</a></p>
+          </div>
+        </div>
+          <hr/>
+      </div>
+    <!--{% cycle "" "<div class='col-sm-12'><hr/></div></div><div class='row'>" %}-->
+    {%endfor%}
+
+    <div class="pagination">
+    <span class="step-links">
+        {% if object_list.has_previous %}
+            <a href="?{{page_request_val}}={{ object_list.previous_page_number }}{%if request.GET.q%}&q={{request.GET.q}}{%endif%}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+        </span>
+
+        {% if object_list.has_next %}
+            <a href="?{{page_request_val}}={{ object_list.next_page_number }}{%if request.GET.q%}&q={{request.GET.q}}{%endif%}">next</a>
+        {% endif %}
+    </span>
+    </div>
+    </div>
+    </div>
+</html>
+{%endblock content%}
