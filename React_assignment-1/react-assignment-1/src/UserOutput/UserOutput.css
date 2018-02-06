@@ -1,0 +1,22 @@
+.User{
+    width : 70%;
+    margin: 50px auto;
+    border: 1px solid #eee;
+    padding: 20px;
+    box-shadow: 0 2px 3px #ccc;
+
+}
+
+#table{
+    width : 100%;
+    padding: 20px;
+    margin: auto;
+}
+
+#button{
+    background:'white';
+    font:'inherit';
+    border:'1px solid blue';
+    padding: '8px';
+    cursor: 'pointer';
+  }
