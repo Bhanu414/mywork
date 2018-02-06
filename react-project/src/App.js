@@ -47,7 +47,7 @@ class App extends Component {
       font:'inherit',
       border:'1px solid blue',
       padding: '8px',
-      curson: 'pointer'
+      cursor: 'pointer'
     }
     return (
       <div className="App">
